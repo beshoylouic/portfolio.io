@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض اعمالي | مبرمج واجهات و Shopify</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">بيشوى<span> برمجه</span></div>
+            <ul>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#work">اعمالي</a></li>
+                <li><a href="#services">خدماتي</a></li>
+                <li><a href="#contact" class="btn-sm">تواصل معي</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>اصمم وابرمج <span class="highlight">مواقع تزيد</span> مبيعاتك</h1>
+                <p>خبير في تحويل التصاميم الى اكواد نظيفة وبناء متاجر Shopify احترافية تزيد من مبيعاتك </p>
+                <div class="cta-buttons">
+                    <a href="#work" class="btn-primary">شاهد مشاريعي</a>
+                    <a href="#services" class="btn-secondary">خدمات Shopify</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="work" class="portfolio">
+    <div class="container">
+        <h2 class="section-title">نماذج من اعمالي</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="Screenshot_28-1-2026_20515_.jpeg" alt="متجر شوبيفاي">
+                <div class="overlay">
+                    <h3>متجر ملابس عصري</h3>
+                    <p>Shopify | Custom Liquid</p>
+                    <a href="Screenshot_28-1-2026_20515_.jpeg"target="_blank"class="view-link">عرض المشروع</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="Screenshot_28-1-2026_113254_.jpeg" alt="واجهة موقع">
+                <div class="overlay">
+                    <h3>صفحة هبوط تقنية</h3>
+                    <p>HTML5 | CSS3 | JS</p>
+                    <a href="Screenshot_28-1-2026_113254_.jpeg"target="_blank"class="view-link">عرض المشروع</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="Screenshot_26-1-2026_122116_.jpeg" alt="تصميم واجهة">
+                <div class="overlay">
+                    <h3>لوحة تحكم احترافية</h3>
+                    <p>React | Tailwind CSS</p>
+                    <a href="Screenshot_26-1-2026_122116_.jpeg"target="_blank"class="view-link">عرض المشروع</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<section id="services" class="portfolio">
+    <div class="container">
+        <h2 class="section-title">خدماتي <span class="highlight">الاحترافية</span></h2>
+        <div class="projects-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-bag"></i> </div>
+                <h3>بناء متاجر Shopify</h3>
+                <p>تصميم متجر كامل من الصفر متوافق مع جميع الشاشات </p>
+                <div class="service-tag">High Conversion</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i> </div>
+                <h3>تعديلات Liquid مخصصة</h3>
+                <p>برمجة مميزات خاصة داخل قوالب شوبيفاي لزيادة المبيعات</p>
+                <div class="service-tag">Custom Liquid</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="contact" class="portfolio" style="background: #0b1120;">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title">اطلب موقعك الان</h2>
+        <p style="margin-bottom: 30px; font-size: 1.2rem;">جاهز لتحويل فكرتك إلى واقع؟ انا متاح للمشاريع الجديدة</p>
+        <a href="https://wa.me/201027622636" class="btn-primary" target="_blank">تواصل عبر واتساب</a>
+    </div>
+</section>
+<script>
+// ===== حركة الأقسام عند الدخول =====
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show-section");
+        }
+    });
+}, { threshold: 0.2 }); // يظهر لما 20% من القسم يكون ظاهر
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+// ===== حركة الأزرار عند Hover =====
+const buttons = document.querySelectorAll(".btn-primary, .btn-secondary");
+
+buttons.forEach(btn => {
+    btn.addEventListener("mousemove", e => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        btn.style.setProperty("--x", x + "px");
+        btn.style.setProperty("--y", y + "px");
+    });
+    btn.addEventListener("mouseout", () => {
+        btn.style.setProperty("--x", "50%");
+        btn.style.setProperty("--y", "50%");
+    });
+});
+</script>
+<script src="background.JS"></script>
+</body>
+</html>

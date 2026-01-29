@@ -1,0 +1,282 @@
+:root {
+    --primary-color: #00ff88; /* لون فسفوري جذاب */
+    --bg-dark: #0f172a;      /* أزرق غامق جداً للخلفية */
+    --text-light: #f8fafc;
+    --card-bg: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header & Nav */
+header {
+    padding: 20px 0;
+    background: rgba(15, 23, 42, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span { color: var(--primary-color); }
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-right: 25px; }
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    transition: 0.3s;
+}
+
+nav ul li a:hover { color: var(--primary-color); }
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.highlight { color: var(--primary-color); }
+
+.hero p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-color);
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+}
+/* Portfolio Section */
+.portfolio {
+    padding: 100px 0;
+    background: #0f172a;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--text-light);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden; /* عشان الصورة متخرجش بره الحواف */
+    height: 250px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* عشان الصورة متتمطش */
+    transition: transform 0.5s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.85); /* خلفية شفافة عند الوقوف بالماوس */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* مخفية في البداية */
+    transition: opacity 0.4s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.project-card:hover .overlay {
+    opacity: 1; /* تظهر عند الـ Hover */
+}
+
+.project-card:hover img {
+    transform: scale(1.1); /* زووم بسيط للصورة */
+}
+
+.overlay h3 { color: var(--primary-color); margin-bottom: 10px; }
+.overlay p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 15px; }
+
+.view-link {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 2px;
+    font-size: 0.9rem;
+}
+html {
+    scroll-behavior: smooth;
+}
+.service-card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(0, 255, 136, 0.15);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.4));
+}
+.service-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.service-card p {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.service-tag {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px 15px;
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.btn-primary, .service-card:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); /* توهج فسفوري */
+    transition: 0.3s all ease-in-out;
+}
+.service-card {
+    background: rgba(255, 255, 255, 0.03); /* شفافية بسيطة */
+    backdrop-filter: blur(10px); /* تغبيش الخلفية */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.top-bar {
+    background: var(--primary-color);
+    color: #000;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.top-bar a {
+    color: #000;
+    text-decoration: underline;
+}
+/* الحركة للأقسام */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s ease-out;
+}
+
+section.show-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* تأثير حركة الأزرار */
+.btn-primary, .btn-secondary {
+    position: relative;
+    overflow: hidden;
+    --x: 50%;
+    --y: 50%;
+}
+
+.btn-primary::before, .btn-secondary::before {
+    content: "";
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::before, .btn-secondary:hover::before {
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.2);
+}
